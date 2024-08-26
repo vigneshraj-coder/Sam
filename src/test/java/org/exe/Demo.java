@@ -76,8 +76,8 @@ import org.testng.annotations.*;
 									waitOneS();
 									fillTextBox(txtusername, Keys.CONTROL + "a" + Keys.DELETE);
 									fillTextBox(txtpassword, Keys.CONTROL + "a" + Keys.DELETE);
-									fillTextBox(txtusername, "cr7");
-									fillTextBox(txtpassword, "Password@123");
+									fillTextBox(txtusername, "111");
+									fillTextBox(txtpassword, "muc@123");
 									clickButton(btnlogin);
 								}
 							}
@@ -251,20 +251,18 @@ import org.testng.annotations.*;
 
 			waitTwoS();
 			clickButton(event.getEvent());
-//			WebElement card = event.getCardsection();
-			List<WebElement> eventCards = event.getCardsection();
+			List<WebElement> eventCards = event.getInfoBtn();
 			if (eventCards.size() == 0) {
 				System.out.println("No cards found ");
 				return;
 			}
 
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-			for (int i = 0; i < eventCards.size(); i++) {
+			for (int i = 1; i < eventCards.size(); i++) {
 				System.out.println(i);
 				WebElement card = eventCards.get(i);
-				WebElement getInfoButton = event.getInfoBtn(card);
 				waitTwoS();
-				clickButton(getInfoButton);
+				clickButton(card);
 				WebElement type_text1 = event.getText1();
 				wait.until(ExpectedConditions.visibilityOf(type_text1));
 				if (type_text1.isEnabled()) {

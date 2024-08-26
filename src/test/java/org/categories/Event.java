@@ -17,8 +17,8 @@ public class Event extends Base{
 	public WebElement getEvent() {return txtevent;}
 	
 	@FindBy(xpath = "//button[@type= 'button']")
-	private WebElement  infobtn;
-	public WebElement getInfoBtn(WebElement card) {return infobtn;}
+	private List<WebElement> infobtn;
+	public List<WebElement> getInfoBtn() {return infobtn;}
 	
 	@FindBy(xpath = "(//input[@type='text'])[2]")
 	private WebElement text1;
